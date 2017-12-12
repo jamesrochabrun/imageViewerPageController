@@ -17,4 +17,12 @@ class PhotoViewerController: UIViewController {
         super.viewDidLoad()
         photoImageView.image = photo.image
     }
+    
+    
+    @IBAction func launchPhotoZoomController(_ sender: UITapGestureRecognizer) {
+        guard let storyboard = storyboard,
+            let zoomController = storyboard.instantiateViewController(withIdentifier: "PhotoZoomController") as? PhotoZoomController  else { return }
+        zoomController.photo = photo
+        navigationController?.present(zoomController, animated: true)
+    }
 }
