@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class PhotosDataSource: NSObject, UICollectionViewDataSource {
+    
     private let collectionView: UICollectionView
     private let fetchedResultsController: PhotosFetchedResultsController
     

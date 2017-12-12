@@ -53,6 +53,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B4CF6651FDF9DD4000CA708 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				97C5209E1F7B40D4005642A3 /* PhotosFetchedResultsController.swift */,
+				97C520991F7B4020005642A3 /* ImageViewer.xcdatamodeld */,
+				97C520921F7B3E31005642A3 /* CoreDataStack.swift */,
+				BE1757921F7BECA800DF85F4 /* Photo+CoreDataProperties.swift */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
+		7B4CF6661FDF9DF3000CA708 /* PickerManager */ = {
+			isa = PBXGroup;
+			children = (
+				7B4CF65F1FDF86C2000CA708 /* PhotoPickerManager.swift */,
+			);
+			path = PickerManager;
+			sourceTree = "<group>";
+		};
+		7B4CF6671FDF9E12000CA708 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				97C520A01F7B40F8005642A3 /* PhotosDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		7B4CF6681FDF9E35000CA708 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				97C520971F7B3FBD005642A3 /* PhotoCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B4CF6691FDF9E44000CA708 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				97C520951F7B3F60005642A3 /* PhotoListController.swift */,
+				7B4CF6611FDF8FFE000CA708 /* PhotoPageController.swift */,
+				7B4CF6631FDF90C5000CA708 /* PhotoViewerController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		97C520741F7B3E1A005642A3 = {
 			isa = PBXGroup;
 			children = (
@@ -73,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				97C520941F7B3F46005642A3 /* Starter Files */,
-				97C520801F7B3E1A005642A3 /* AppDelegate.swift */,
 				97C520841F7B3E1A005642A3 /* Main.storyboard */,
 				97C520871F7B3E1A005642A3 /* Assets.xcassets */,
 				97C520891F7B3E1A005642A3 /* LaunchScreen.storyboard */,
@@ -85,16 +129,12 @@
 		97C520941F7B3F46005642A3 /* Starter Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE1757921F7BECA800DF85F4 /* Photo+CoreDataProperties.swift */,
-				97C520921F7B3E31005642A3 /* CoreDataStack.swift */,
-				97C520951F7B3F60005642A3 /* PhotoListController.swift */,
-				97C520971F7B3FBD005642A3 /* PhotoCell.swift */,
-				97C520991F7B4020005642A3 /* ImageViewer.xcdatamodeld */,
-				97C5209E1F7B40D4005642A3 /* PhotosFetchedResultsController.swift */,
-				97C520A01F7B40F8005642A3 /* PhotosDataSource.swift */,
-				7B4CF65F1FDF86C2000CA708 /* PhotoPickerManager.swift */,
-				7B4CF6611FDF8FFE000CA708 /* PhotoPageController.swift */,
-				7B4CF6631FDF90C5000CA708 /* PhotoViewerController.swift */,
+				97C520801F7B3E1A005642A3 /* AppDelegate.swift */,
+				7B4CF6691FDF9E44000CA708 /* Controllers */,
+				7B4CF6681FDF9E35000CA708 /* Views */,
+				7B4CF6671FDF9E12000CA708 /* DataSources */,
+				7B4CF6661FDF9DF3000CA708 /* PickerManager */,
+				7B4CF6651FDF9DD4000CA708 /* CoreDataStack */,
 			);
 			path = "Starter Files";
 			sourceTree = "<group>";
