@@ -12,7 +12,9 @@ class PhotoPageController: UIPageViewController {
     
     var photos: [Photo] = []
     var indexOfCurrentPhoto: Int!
-    let pageControllerDataSource = PhotoPageControllerDataSource()
+    lazy var pageControllerDataSource: PhotoPageControllerDataSource = {
+        return PhotoPageControllerDataSource(photoPageController: self)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,22 +24,69 @@ class PhotoPageController: UIPageViewController {
     
     private func configureControllers() {
         
-        guard let storyboard = storyboard, let photoViewerController = storyboard.instantiateViewController(withIdentifier: "PhotoViewerController") as? PhotoViewerController else { return }
-        photoViewerController.photo = photos[indexOfCurrentPhoto]
-        setViewControllers([photoViewerController], direction: .forward, animated: false)
+        if let photoViewerController = photoViewerController(with: photos[indexOfCurrentPhoto]) {
+            setViewControllers([photoViewerController], direction: .forward, animated: false)
+        }
+    }
+    
+    func photoViewerController(with photo: Photo) -> PhotoViewerController? {
+        guard let storyboard = storyboard, let photoViewerController = storyboard.instantiateViewController(withIdentifier: "PhotoViewerController") as? PhotoViewerController else { return nil }
+        photoViewerController.photo = photo
+        return photoViewerController
     }
 }
 
 class PhotoPageControllerDataSource: NSObject, UIPageViewControllerDataSource {
     
+    private var photoPageController: PhotoPageController?
+    
+    init(photoPageController: PhotoPageController) {
+        self.photoPageController = photoPageController
+        super.init()
+    }
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        return nil
+        
+        /// 1 get photo and check index
+        guard let photoVC = viewController as? PhotoViewerController,
+            let index = photoPageController?.photos.index(of: photoVC.photo) else { return nil }
+        
+        ///2 compare indexes and return nil if they match
+        if index == photoPageController?.photos.startIndex {
+            return nil
+        } else{
+            guard let indexBefore = photoPageController?.photos.index(before: index),
+                let photo = photoPageController?.photos[indexBefore] else { return nil }
+            return photoPageController?.photoViewerController(with: photo)
+        }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        return nil
+       
+        /// 1 get photo and check index
+        guard let photoVC = viewController as? PhotoViewerController,
+            let index = photoPageController?.photos.index(of: photoVC.photo) else { return nil }
+        
+        
+        ///2 compare indexes and return nil if they match
+        if index == (photoPageController?.photos.index(before: (photoPageController?.photos.endIndex)!))! {
+            return nil
+        } else{
+            guard let indexAfter = photoPageController?.photos.index(after: index),
+                let photo = photoPageController?.photos[indexAfter] else { return nil }
+            return photoPageController?.photoViewerController(with: photo)
+        }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
