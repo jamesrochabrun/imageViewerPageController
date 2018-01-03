@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+///here is how to create a zoom view
+
 class PhotoZoomController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView! {
@@ -15,6 +18,7 @@ class PhotoZoomController: UIViewController {
             scrollView.delegate = self
         }
     }
+    
     @IBOutlet weak var photoImageView: UIImageView!
     var photo: Photo!
     
