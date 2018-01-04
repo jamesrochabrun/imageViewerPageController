@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0920AACA1FFDEA1C00C273BD /* PhotoFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920AAC91FFDEA1C00C273BD /* PhotoFilterController.swift */; };
+		09F0639A1FFDEF43008F9EDD /* PhotoFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F063991FFDEF43008F9EDD /* PhotoFilters.swift */; };
+		09F0639C1FFDF6AA008F9EDD /* FilteredImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F0639B1FFDF6AA008F9EDD /* FilteredImageBuilder.swift */; };
+		09F0639E1FFDF8C1008F9EDD /* FilteredImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F0639D1FFDF8C1008F9EDD /* FilteredImageCell.swift */; };
 		7B4CF6601FDF86C2000CA708 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4CF65F1FDF86C2000CA708 /* PhotoPickerManager.swift */; };
 		7B4CF6621FDF8FFE000CA708 /* PhotoPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4CF6611FDF8FFE000CA708 /* PhotoPageController.swift */; };
 		7B4CF6641FDF90C5000CA708 /* PhotoViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4CF6631FDF90C5000CA708 /* PhotoViewerController.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0920AAC91FFDEA1C00C273BD /* PhotoFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilterController.swift; sourceTree = "<group>"; };
+		09F063991FFDEF43008F9EDD /* PhotoFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilters.swift; sourceTree = "<group>"; };
+		09F0639B1FFDF6AA008F9EDD /* FilteredImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImageBuilder.swift; sourceTree = "<group>"; };
+		09F0639D1FFDF8C1008F9EDD /* FilteredImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImageCell.swift; sourceTree = "<group>"; };
 		7B4CF65F1FDF86C2000CA708 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
 		7B4CF6611FDF8FFE000CA708 /* PhotoPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPageController.swift; sourceTree = "<group>"; };
 		7B4CF6631FDF90C5000CA708 /* PhotoViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerController.swift; sourceTree = "<group>"; };
@@ -55,13 +63,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7B4CF6651FDF9DD4000CA708 /* CoreDataStack */ = {
+		09F063961FFDEEF6008F9EDD /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				97C5209E1F7B40D4005642A3 /* PhotosFetchedResultsController.swift */,
 				97C520991F7B4020005642A3 /* ImageViewer.xcdatamodeld */,
-				97C520921F7B3E31005642A3 /* CoreDataStack.swift */,
 				BE1757921F7BECA800DF85F4 /* Photo+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		09F063971FFDEF17008F9EDD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				09F063981FFDEF33008F9EDD /* FilterTools */,
+				7B4CF6661FDF9DF3000CA708 /* PickerManager */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		09F063981FFDEF33008F9EDD /* FilterTools */ = {
+			isa = PBXGroup;
+			children = (
+				09F063991FFDEF43008F9EDD /* PhotoFilters.swift */,
+				09F0639B1FFDF6AA008F9EDD /* FilteredImageBuilder.swift */,
+			);
+			path = FilterTools;
+			sourceTree = "<group>";
+		};
+		7B4CF6651FDF9DD4000CA708 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				97C520921F7B3E31005642A3 /* CoreDataStack.swift */,
 			);
 			path = CoreDataStack;
 			sourceTree = "<group>";
@@ -86,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				97C520971F7B3FBD005642A3 /* PhotoCell.swift */,
+				09F0639D1FFDF8C1008F9EDD /* FilteredImageCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -97,6 +131,7 @@
 				7B4CF6611FDF8FFE000CA708 /* PhotoPageController.swift */,
 				7B4CF6631FDF90C5000CA708 /* PhotoViewerController.swift */,
 				7B4CF66A1FDFA10F000CA708 /* PhotoZoomController.swift */,
+				0920AAC91FFDEA1C00C273BD /* PhotoFilterController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -133,10 +168,11 @@
 			isa = PBXGroup;
 			children = (
 				97C520801F7B3E1A005642A3 /* AppDelegate.swift */,
-				7B4CF6691FDF9E44000CA708 /* Controllers */,
+				09F063971FFDEF17008F9EDD /* Helpers */,
+				09F063961FFDEEF6008F9EDD /* Model */,
 				7B4CF6681FDF9E35000CA708 /* Views */,
+				7B4CF6691FDF9E44000CA708 /* Controllers */,
 				7B4CF6671FDF9E12000CA708 /* DataSources */,
-				7B4CF6661FDF9DF3000CA708 /* PickerManager */,
 				7B4CF6651FDF9DD4000CA708 /* CoreDataStack */,
 			);
 			path = "Starter Files";
@@ -214,14 +250,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0920AACA1FFDEA1C00C273BD /* PhotoFilterController.swift in Sources */,
 				97C520931F7B3E31005642A3 /* CoreDataStack.swift in Sources */,
 				97C5209B1F7B4020005642A3 /* ImageViewer.xcdatamodeld in Sources */,
 				97C520981F7B3FBD005642A3 /* PhotoCell.swift in Sources */,
+				09F0639E1FFDF8C1008F9EDD /* FilteredImageCell.swift in Sources */,
 				7B4CF66B1FDFA10F000CA708 /* PhotoZoomController.swift in Sources */,
 				7B4CF6641FDF90C5000CA708 /* PhotoViewerController.swift in Sources */,
 				97C5209F1F7B40D4005642A3 /* PhotosFetchedResultsController.swift in Sources */,
 				97C520961F7B3F60005642A3 /* PhotoListController.swift in Sources */,
+				09F0639A1FFDEF43008F9EDD /* PhotoFilters.swift in Sources */,
 				7B4CF6621FDF8FFE000CA708 /* PhotoPageController.swift in Sources */,
+				09F0639C1FFDF6AA008F9EDD /* FilteredImageBuilder.swift in Sources */,
 				97C520811F7B3E1A005642A3 /* AppDelegate.swift in Sources */,
 				BE1757941F7BECA800DF85F4 /* Photo+CoreDataProperties.swift in Sources */,
 				7B4CF6601FDF86C2000CA708 /* PhotoPickerManager.swift in Sources */,
