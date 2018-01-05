@@ -13,19 +13,25 @@ import UIKit
 class PhotoFilterController: UIViewController {
     
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var filtersCollectionView: UICollectionView!
-    private lazy var filteredImages: [UIImage] = {
+    @IBOutlet weak var filtersCollectionView: UICollectionView! {
+        didSet {
+            filtersCollectionView.dataSource = self
+        }
+    }
+    
+    var context: CIContext!
+    var photo: UIImage?
+
+    private lazy var filteredImages: [CGImage] = {
         guard let image = self.photo else { return [] }
-        let filteredImageBuilder = FilteredImageBuilder(image: image)
+        let filteredImageBuilder = FilteredImageBuilder(image: image, context: self.context)
         return filteredImageBuilder.imageWithDefaultFilters()
     }()
     
-    var photo: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         photoImageView.image = photo
-        filtersCollectionView.dataSource = self
     }
 }
 
@@ -37,7 +43,8 @@ extension PhotoFilterController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilteredImageCell.reuseID, for: indexPath) as? FilteredImageCell else { return UICollectionViewCell() }
-        cell.imageView.image = filteredImages[indexPath.row]
+        let cgImage = filteredImages[indexPath.row]
+        cell.imageView.image = UIImage(cgImage: cgImage)
         return cell
     }
     

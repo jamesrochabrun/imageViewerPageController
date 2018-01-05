@@ -13,23 +13,35 @@ import UIKit
 class FilteredImageBuilder {
     
     private let image: UIImage
+    private let context: CIContext
     
-    init(image: UIImage) {
+    init(image: UIImage, context: CIContext) {
         self.image = image
+        self.context = context
     }
     
-    func applyFilter(_ filter: CIFilter) -> UIImage? {
+    func applyFilter(_ filter: CIFilter) -> CGImage? {
         guard let inputImage = image.ciImage ?? CIImage(image: self.image) else { return nil }
         filter.setValue(inputImage, forKey: kCIInputImageKey)
         guard let outputImage = filter.outputImage else { return nil }
-        return UIImage(ciImage: outputImage)
+        
+        // when applying a filter in to an image it can change its dimensions like adding a border etc, so this method will make
+        // the outputimage match the bounds of the inputimage extent
+        return context.createCGImage(outputImage, from: inputImage.extent)
     }
     
-    func image(withFilters filters: [CIFilter]) -> [UIImage] {
+    func image(withFilters filters: [CIFilter]) -> [CGImage] {
         return filters.flatMap { applyFilter($0) }
     }
     
-    func imageWithDefaultFilters() -> [UIImage] {
+    func imageWithDefaultFilters() -> [CGImage] {
         return image(withFilters: PhotoFilter.defaultFilters)
     }
 }
+
+
+
+
+
+
+

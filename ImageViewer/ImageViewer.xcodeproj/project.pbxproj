@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090CD2CB1FFF302300DD738F /* ImageFiltrationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090CD2CA1FFF302300DD738F /* ImageFiltrationOperation.swift */; };
 		0920AACA1FFDEA1C00C273BD /* PhotoFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920AAC91FFDEA1C00C273BD /* PhotoFilterController.swift */; };
 		09F0639A1FFDEF43008F9EDD /* PhotoFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F063991FFDEF43008F9EDD /* PhotoFilters.swift */; };
 		09F0639C1FFDF6AA008F9EDD /* FilteredImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F0639B1FFDF6AA008F9EDD /* FilteredImageBuilder.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090CD2CA1FFF302300DD738F /* ImageFiltrationOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFiltrationOperation.swift; sourceTree = "<group>"; };
 		0920AAC91FFDEA1C00C273BD /* PhotoFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilterController.swift; sourceTree = "<group>"; };
 		09F063991FFDEF43008F9EDD /* PhotoFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilters.swift; sourceTree = "<group>"; };
 		09F0639B1FFDF6AA008F9EDD /* FilteredImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImageBuilder.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				09F063991FFDEF43008F9EDD /* PhotoFilters.swift */,
 				09F0639B1FFDF6AA008F9EDD /* FilteredImageBuilder.swift */,
+				090CD2CA1FFF302300DD738F /* ImageFiltrationOperation.swift */,
 			);
 			path = FilterTools;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				090CD2CB1FFF302300DD738F /* ImageFiltrationOperation.swift in Sources */,
 				0920AACA1FFDEA1C00C273BD /* PhotoFilterController.swift in Sources */,
 				97C520931F7B3E31005642A3 /* CoreDataStack.swift in Sources */,
 				97C5209B1F7B4020005642A3 /* ImageViewer.xcdatamodeld in Sources */,

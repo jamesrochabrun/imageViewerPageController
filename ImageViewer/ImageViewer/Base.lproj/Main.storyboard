@@ -149,6 +149,10 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="RQN-FO-pLX" id="DA7-G4-Juq"/>
+                                            <outlet property="delegate" destination="RQN-FO-pLX" id="rbZ-G8-bYS"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                             </stackView>
