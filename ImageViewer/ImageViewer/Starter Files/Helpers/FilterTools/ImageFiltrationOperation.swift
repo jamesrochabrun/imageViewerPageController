@@ -24,7 +24,7 @@ class FiltrationImage {
     }
 }
 
-class imageFiltrationOperation: Operation {
+class ImageFiltrationOperation: Operation {
     
     let filtrationImage: FiltrationImage
     let filter: CIFilter
